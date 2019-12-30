@@ -11,7 +11,7 @@ self.addEventListener('fetch', function (event) {
     let result = `
 <html>
 <head>
-<title>Bunny OneSite</title>
+<title>OneSite.js</title>
 </head>
 <body>
     <h1>OneSite</h1>
