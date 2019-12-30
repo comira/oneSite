@@ -1,0 +1,15 @@
+<script>
+    if ('serviceWorker' in navigator) {
+        let sw = '/oneSite/sw.js';
+        let scope = '/oneSite/';
+        if (location.href.indexOf('/oneSite/') === -1) {
+            sw = '/sw.js';
+            scope = '/';
+        }
+        navigator.serviceWorker.register(sw, {scope: scope}).then(res => {
+            console.log('ServiceWorker Init');
+        }).catch(err => {
+            console.log('ServiceWorker Failed')
+        })
+    }
+</script>
