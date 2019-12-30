@@ -1,4 +1,15 @@
 <script>
+    function reload() {
+        let curr = +new Date;
+        let last = +sessionStorage._ts || 0;
+        if (curr - last < 100) {
+            setTimeout(reload, 5000);
+            return;
+        }
+        sessionStorage._ts = curr;
+        location.reload();
+    }
+
     if ('serviceWorker' in navigator) {
         let sw = '/oneSite/sw.js';
         let scope = '/oneSite/';
@@ -8,6 +19,7 @@
         }
         navigator.serviceWorker.register(sw, {scope: scope}).then(res => {
             console.log('ServiceWorker Init');
+            reload();
         }).catch(err => {
             console.log('ServiceWorker Failed')
         })
