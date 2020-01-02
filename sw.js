@@ -1,6 +1,6 @@
 function WebSocketSQL(db) {
     return new Promise(function (openResolve, openReject) {
-        let socket = new WebSocket('ws://sql.mwr.pub/' + db);
+        let socket = new WebSocket('wss://sql.mwr.pub/' + db);
         let callbacks = {};
         socket.onmessage = function (e) {
             let response = JSON.parse(e.data);
